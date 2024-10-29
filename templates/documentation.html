@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <!-- Include System.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <!-- Include custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <ul role="menu-bar" class="menu-bar">
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'home' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'documentation' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('documentation') }}">Documentation</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'about' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('about') }}">About</a>
+        </li>
+    </ul>
+    
+
+    <!-- Main Window -->
+    <div class="window">
+        <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title">Documentation</h1>
+            <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="window-pane">
+            <h2>Overview</h2>
+            <p>This application allows users to input a target population and/or area to find the top 3 countries closest to those values. It's designed with a retro Apple System OS interface using System.css.</p>
+
+            <h2>How to Use</h2>
+            <ol>
+                <li>Navigate to the <a href="{{ url_for('index') }}">Home Page</a>.</li>
+                <li>Enter the desired population and select the appropriate unit (Units, Thousands, Millions, Billions).</li>
+                <li>Enter the desired area (km<sup>2</sup>) and select the appropriate unit.</li>
+                <li>Click the <strong>Compare</strong> button to view the results.</li>
+            </ol>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Responsive design that adapts to different screen sizes.</li>
+                <li>Retro Apple System OS look using System.css.</li>
+                <li>Ability to find countries closest in population and area to user-defined values.</li>
+                <li>Easy unit selection via dropdown menus.</li>
+            </ul>
+
+            <h2>Technical Details</h2>
+            <p>The application is built using Python and Flask for the backend, and utilizes the Rest Countries API to fetch country data. It caches data locally to improve performance and reduce API calls.</p>
+
+            <h2>Dependencies</h2>
+            <ul>
+                <li>Python 3.6 or higher</li>
+                <li>Flask</li>
+                <li>Requests</li>
+                <li>System.css</li>
+            </ul>
+
+            <div class="field-row buttons">
+                <a href="{{ url_for('index') }}">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

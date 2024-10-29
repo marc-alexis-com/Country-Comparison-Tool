@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparison Results</title>
+    <!-- Include System.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <!-- Include custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <ul role="menu-bar" class="menu-bar">
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'home' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'documentation' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('documentation') }}">Documentation</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'about' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('about') }}">About</a>
+        </li>
+    </ul>    
+
+    <!-- Main Window -->
+    <div class="window">
+        <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title">Results</h1>
+            <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="window-pane">
+            {% if target_pop %}
+            <h2>Top 3 Countries Closest in Population (Target: {{ format_number(target_pop) }})</h2>
+            <ul>
+                {% for country in pop_results %}
+                <li>
+                    <strong>{{ loop.index }}. {{ country.name }}</strong><br>
+                    Population: {{ format_number(country.population) }}<br>
+                    Proximity: {{ country.percentage }}%
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if target_area %}
+            <h2>Top 3 Countries Closest in Area (Target: {{ format_number(target_area) }} km2)</h2>
+            <ul>
+                {% for country in area_results %}
+                <li>
+                    <strong>{{ loop.index }}. {{ country.name }}</strong><br>
+                    Area: {{ format_number(country.area) }} km2<br>
+                    Proximity: {{ country.percentage }}%
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div class="field-row buttons">
+                <a href="{{ url_for('index') }}" class="btn">Make a New Comparison</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

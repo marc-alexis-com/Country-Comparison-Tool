@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <!-- Include System.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <!-- Include custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <ul role="menu-bar" class="menu-bar">
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'home' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'documentation' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('documentation') }}">Documentation</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'about' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('about') }}">About</a>
+        </li>
+    </ul>    
+
+    <!-- Main Window -->
+    <div class="window">
+        <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title">About</h1>
+            <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="window-pane">
+            <h2>About This Application</h2>
+            <p>This Country Comparison Tool was developed to provide users with an easy way to find countries that are closest in population and area to specified values. The application combines data retrieval with a nostalgic user interface inspired by the classic Apple System OS.</p>
+
+            <h2>Developer Information</h2>
+            <p>Created by <b>Marc-Alexis</b>, a passionate developer interested in data visualization and retro UI design.</p>
+
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Flask:</strong> A lightweight WSGI web application framework for Python.</li>
+                <li><strong>System.css:</strong> A CSS library for building retro-inspired interfaces resembling Apple's System OS.</li>
+                <li><strong>Rest Countries API:</strong> Provides detailed information about countries in a JSON format.</li>
+            </ul>
+
+            <h2>Contact Information</h2>
+            <p>If you have any questions, suggestions, or feedback, feel free to reach out:</p>
+            <ul>
+                <li>Email: <a href="mailto:contact@marc-alexis.com">contact@marc-alexis.com</a></li>
+                <li>GitHub: <a href="https://github.com/marc-alexis-com" target="_blank">https://github.com/marc-alexis-com</a></li>
+                <li>Website: <a href="https://www.marc-alexis.com" target="_blank">marc-alexis.com</a></li>
+            </ul>
+
+            <h2>Acknowledgments</h2>
+            <p>Special thanks to the creators of System.css and the Rest Countries API for providing the tools necessary to build this application.</p>
+
+            <div class="field-row buttons">
+                <a href="{{ url_for('index') }}">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

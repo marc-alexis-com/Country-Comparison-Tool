@@ -1,0 +1,117 @@
+/* Ensure the main window is responsive */
+.window {
+    max-width: 90%;
+    margin: 50px auto;
+}
+
+.title-bar {
+    cursor: move; /* Optional: makes the title bar appear draggable */
+}
+
+.window-pane {
+    padding: 10px;
+}
+
+/* Adjust field-row elements for better responsiveness */
+.field-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.field-row label {
+    margin-bottom: 5px;
+}
+
+.field-row input,
+.field-row select {
+    width: 100%;
+}
+
+/* Input group for number input and unit select */
+.input-group {
+    display: flex;
+    width: 100%;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+.input-group select {
+    flex: 0 0 auto;
+    margin-left: 20px; /* Increased space between input and select */
+    max-width: 150px;
+}
+
+/* Align buttons to the center */
+.field-row.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.field-row.buttons .btn {
+    margin: 10px;
+}
+
+/* Style for the menu bar to make it fixed at the top */
+.menu-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#nav-active a { /* J'ai pas réussi à faire fonctionner ça, que dieu me vienne en aide.*/
+    color: white;
+    background-color: black;
+}
+
+/* Add some padding to the body to prevent content from being hidden behind the fixed menu bar */
+body {
+    padding-top: 25px;
+}
+
+/* Adjustments for the list items in results */
+.window-pane ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Headings */
+.window-pane h2 {
+    margin-top: 20px;
+}
+
+/* Media queries for larger screens */
+@media (min-width: 600px) {
+    /* Adjust field-row elements for larger screens */
+    .field-row {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .field-row label {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    /* Adjust input group for larger screens */
+    .input-group {
+        display: flex;
+        width: 100%;
+    }
+
+    .input-group input {
+        flex: 1;
+    }
+
+    .input-group select {
+        flex: 0 0 auto;
+        margin-left: 20px; /* Ensure consistent spacing on larger screens */
+        max-width: 150px;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Comparison</title>
+    <!-- Include System.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <!-- Include custom styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <ul role="menu-bar" class="menu-bar">
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'home' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'documentation' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('documentation') }}">Documentation</a>
+        </li>
+        <li role="menu-item" tabindex="0" aria-haspopup="false" {% if active_page == 'about' %}id="nav-active"{% endif %}>
+            <a href="{{ url_for('about') }}">About</a>
+        </li>
+    </ul>    
+
+    <!-- Main Window -->
+    <div class="window">
+        <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title">Comparison</h1>
+            <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="window-pane">
+            <p>Enter the target population and/or area, and the tool will find the top 3 countries closest to your inputs.</p>
+            <form method="post">
+                <div class="field-row">
+                    <label for="population">Target Population:</label>
+                    <div class="input-group">
+                        <input type="number" step="any" id="population" name="population" placeholder="Enter a number">
+                        <select id="pop_unit" name="pop_unit">
+                            <option value="units">Units</option>
+                            <option value="thousand">Thousands</option>
+                            <option value="million" selected>Millions</option>
+                            <option value="billion">Billions</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <label for="area">Target Area (km2):</label>
+                    <div class="input-group">
+                        <input type="number" step="any" id="area" name="area" placeholder="Enter a number">
+                        <select id="area_unit" name="area_unit">
+                            <option value="units">Units</option>
+                            <option value="thousand" selected>Thousands</option>
+                            <option value="million">Millions</option>
+                            <option value="billion">Billions</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-row buttons">
+                    <button class="btn" type="submit">Compare</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
