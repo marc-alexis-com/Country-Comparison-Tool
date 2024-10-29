@@ -63,9 +63,9 @@ A retro-style web application that allows users to compare countries based on po
    ├── app.py
    ├── countries_data.csv      # Will be created after running the app
    ├── requirements.txt
-   ├── static/
-   │   └── styles.css
    └── templates/
+       ├── static/
+       │   └── styles.css
        ├── index.html
        ├── results.html
        ├── documentation.html
