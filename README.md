@@ -238,4 +238,4 @@ To implement this application on your own website, follow these steps:
 
 ## License
 
-This project is licensed under no license, do what you want for the love of god, I'm not going to tell you what you have to do and what you don't have to do à la fin merde. C'est bon ça m'a soulé la...
+This project is licensed under no license, do what you want for the love of god, I'm not going to tell you what you have to do and what you don't have to do à la fin.
